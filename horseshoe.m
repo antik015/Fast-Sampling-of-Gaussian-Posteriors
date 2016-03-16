@@ -1,5 +1,6 @@
 function[pMean,pMedian,pLambda,pSigma,betaout]=horseshoe(y,X,BURNIN,MCMC,thin,type,SAVE_SAMPLES)
-%% Function to impelement Horseshoe shrinkage prior in Bayesian Linear Regression %%
+%% Function to impelement Horseshoe shrinkage prior (http://faculty.chicagobooth.edu/nicholas.polson/research/papers/Horse.pdf)
+%% in Bayesian Linear Regression. %%
 %% Written by Antik Chakraborty (antik@stat.tamu.edu) and Anirban Bhattacharya (anirbanb@stat.tamu.edu)
 
 %% Model: y=X\beta+\epslion, \epsilon \sim N(0,\sigma^2) %%
@@ -16,7 +17,7 @@ function[pMean,pMedian,pLambda,pSigma,betaout]=horseshoe(y,X,BURNIN,MCMC,thin,ty
 %% Bhattacharya et. al. (2015). The global local scale parameters are updated via a Slice sampling scheme given in the online supplement 
 %% of "The Bayesian Bridge" by Polson et. al. (2011). Two different algorithms are used to compute posterior samples of the p*1 vector
 %% of regression coefficients \beta. Type=1 corresponds to the proposed method in Bhattacharya et. al. and Type=2 corresponds to an algorithm provided
-%% in Rue (2001).%%
+%% in Rue (2001). We recomend our algorithm when p>n.%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
